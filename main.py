@@ -191,17 +191,63 @@
 # a.remove(19)
 # print(a)
 
-a = {1,2,3,4,5}
-b = {4,5,6,7,8}
+# a = {1,2,3,4,5}
+# b = {4,5,6,7,8}
 
-s = a.union(b)
-d1 = a.difference(b)
-d2 = b.difference(a)
-i = a.intersection(b)
-sd = a.symmetric_difference(b)
+# s = a.union(b)
+# d1 = a.difference(b)
+# d2 = b.difference(a)
+# i = a.intersection(b)
+# sd = a.symmetric_difference(b)
 
-print(s)
-print(d1)
-print(d2)
-print(i)
-print(sd)
+# print(s)
+# print(d1)
+# print(d2)
+# print(i)
+# print(sd)
+
+d = {1:"hello"}
+
+# print(type(d))
+
+# d = {10:100, 20:200, 30:300, 40:400}
+# d[10] = 1000
+
+# print(d[10])
+# d.update({50:500})
+# print(d)
+
+# for i in d:
+#     print(d[i])
+
+# for i in d.values( ):
+#     print(i)
+
+# a = [1,2,3,4,5]
+
+# b = a.copy
+
+# b[0] = 100
+
+# print(a)
+
+# d = {10:100, 20:200, 30:300, 40:400}
+
+# d2 = d.copy()
+
+# d2[20] = 2000
+
+# print(d)
+
+# a = int(input("tell your number: "))
+# try:
+#     print(10/a)
+
+# except Exception as err:
+#     print(f"Sorry there is an error af {err}")
+
+# print("END")
+
+# r = open("cyanide.txt",'w')
+
+# r.write(" Hello this is Cyanide and I am writing inside this file.")
