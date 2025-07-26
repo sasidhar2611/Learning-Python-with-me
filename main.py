@@ -1,253 +1,111 @@
-# #Hello i am sasidhar. Namaste 
+from pathlib import Path
+import os
 
-# print("Hello World")
+def readfileandfolder():
+    path = Path('')
+    items = list(path.rglob('*'))
+    for i, items in enumerate(items):
+        print(f"{i+1}  :  {items}")
 
-# a = -34
+def createfile():
 
-# b = 56.8
-# c = 12/3
+    try:
+        readfileandfolder()
+        name = input("Please tell your file name: ")
+        p = Path(name)
+        if not p.exists() and p.is_file():
+            with open(p,"w") as fs:
+                data = input("What you want to write in this file? : ")
+                fs.write(data)
 
-# v = 34j
-
-# print(type(v))
-
-
-# st = '122313`241423 asdadDsdF FGADFGAV'
-
-# print(type(st))
-
-# b = True
-
-# t = False
-
-# print(type(t))
- 
-
-# """Strings"""
-
-# a = 65
-
-# print(chr(a))
-
-# a = "SHER"
-
-# print(a[-2])
-
-# a = 13
-
-# if a > 10:
-#     print("I will do task A")
-
-# else:
-#     print("I will do task B")
-
-# money = int(input("Please provide me money!"))
-
-# if money == 10:
-#     print(" I will have a Chocobar Icecream")
-
-# elif money == 20:
-#     print("I will have a MangoDolly Icecream")
-
-# elif money == 30:
-#     print("I will have a Frosty Icecream")
-
-# else:
-#     print("I will have a Cone Icecream")
+            print(f"FILE NAMED {name} CREATED SUCCESFULLY!!")
+        else:
+            print("This File already exits")
+    except Exception as err:
+        print(f"An error occured as {err}")
 
 
-# a = int(input("Enter number A: "))
-# b = int(input("Enter number B: "))
+def readfile():
+    try:
+        readfileandfolder()
+        name = input("Which file you wan to read? : ")
+        p = Path(name)
+        if p.exists() and p.is_file():
+            with open(p, 'r') as fs:
+                data = fs.read()
+                print(data)
 
-# if a > b:
-#     print(f"The largest number is A = {a}")
+            print("FILE READ SUCCESFULLY!!!")
 
-# else:
-#     print(f"The largest number is B = {b}")
+        else:
+            print("File dosen not exist")
 
-# gender = input("Enter your gender as M or F: ")
+    except Exception as err:
+        print(f"An errro occured as {err}")
 
-# if gender == "M" or gender == "m":
-#     print("Good Morning Sir!")
-
-# elif gender == "F" or gender == "f":
-#     print("Good Morning Mam!")
-
-# else:
-#     print("Invalid Gender")
-
-# a = int(input("Enter a number: "))
-
-# if a%2 == 0:
-#     print(f"{a} is an Even Number")
-
-# else:
-#     print(f"{a} is an Odd Number")
-
-# a = input("Enter your name: ")
-# b = int(input("Enter age: "))
-
-# if b >= 18:
-#     print(f"Hey {a} you are a valid voter.")
-
-# else:
-#     print(f"Hey {a} you are not a valid voter. You can be a valid voter in {18-b} years")
-
-# year = int(input("Enter the year: "))
-
-# if year % 4 == 0:
-#     if (year % 100 != 0) or (year % 400 == 0):
-#         print(f"{year} is a Leap Year!")
-#     else:
-#         print(f"{year} is Not a Leap Year.")
-
-# else:
-#     print(f"The year {year} is not a leap year")
-
-# a = range(1,21,1)
-
-# for i in range(20,51):
-#     print(i)
-
-# for i in range(16,0,-1):
-#     print(i)
-
-# for i in range(-5,-16,-1):
-#     print(i)
-
-#lets print a table of 5
-
-# for i in range(5,51,5):
-#     print(i)
-
-# for i in range(5,51,5):
-#     print(f"5 x {i/5} = {i}")
-
-# n = int(input("Which table you want to print: "))
-
-# for i in range(n, (n*10)+1, n):
-#     print(f"{n} x {int(i/n)} = {i}")
-
-# a = "SHERIYANS TEACHES INDUSTRY THINGS"
-# print(len(a))
-# for i in range(0,len(a),1):
-#     print(a[i])
-
-# a = "SHERIYANS IS COOL"
-
-# for i in a:
-#     print(i)
-
-# a = 1
-
-# while a <= 30:
-#     print(a)
-#     a += 1
-
-# def sum(a,b=45):
-#     print(f"The sum of your numbers is {a+b}")
-
-# sum(12)
-# sum(45)
-
-# def hello(name, age):
-#     print(f"Your name is {name} and your age is {age}")
-
-# hello(age = 22, name = "akarsh")
-
-# def palindrome(st):
-#     rev = ""
-#     for i in range(len(st)-1, -1, -1):
-#         rev = rev + st[i]
     
-#     if rev == st:
-#         print(f"{st} is a palindrome")
-#     else:
-#         print(f"{st} is a not a paplindrome")
+def updatefile():
+    try:
+        readfileandfolder()
+        name = input("Tell which file you want to update? : ")
+        p = Path(name)
+        if p.exists() and p.is_file():
+            print("Press 1 for Changing the name of the file")
+            print("Press 2 for overwriting the data of the file")
+            print("Press 3 for appending some content in the file")
 
-# palindrome("NAMAN")
-# palindrome("CURSOR")
+            res = int(input("Tell your Response"))
 
-# def hello():
-#     return "hello how are you"
+            if res == 1:
+                name2 = input("Tell your New file name: ")
+                p2 = Path(name2)
+                p.rename(p2)
 
-# hello()
-# print(hello()) 
+            if res == 2:
+                with open(p, 'w') as fs:
+                    data = input("Tell what you want to write? This will overrride the data: ")
+                    fs.write(data)
 
-# a = [12,13,14,15,16,18,19]
+            if res == 3:
+                with open(p, 'a') as fs:
+                    data = input("Tell what you want to append? This will append the data: ")
+                    fs.write(" "+data) 
+    
+    except Exception as err:
+        print("An error occured as {err}")
 
-# print(a[1:5:1])
 
-# for i in range(len(a)):
-#     print(a[i])
+def deletefile():
+    try:
+        readfileandfolder()
+        name = input("Which file you want to delete: ")
+        p = Path(name)
+        if p.exists() and p.is_file():
+            os.remove(p)
 
-# for i in a:
-#     print(i)
+            print("File removed succesfully!!")
 
-# a.append(19)
-# a.append(20)
-# a.insert(5,17)
-# a.extend([21,22,23,24])
-# a.remove(19)
-# print(a)
+        else:
+            print("No such file exist")
+    
+    except Exception as err:
+        print("An error occured as {err}")
 
-# a = {1,2,3,4,5}
-# b = {4,5,6,7,8}
+print("Press 1 for Creating a file")
+print("Press 2 for Reading a file")
+print("Press 3 for Updating a file")
+print("Press 4 for Deleting a file")
 
-# s = a.union(b)
-# d1 = a.difference(b)
-# d2 = b.difference(a)
-# i = a.intersection(b)
-# sd = a.symmetric_difference(b)
+check = int(input("Please enter your response:- "))
 
-# print(s)
-# print(d1)
-# print(d2)
-# print(i)
-# print(sd)
+if check == 1:
+    createfile()
 
-d = {1:"hello"}
+if check == 2:
+    readfile()
 
-# print(type(d))
+if check == 3:
+    updatefile()
 
-# d = {10:100, 20:200, 30:300, 40:400}
-# d[10] = 1000
-
-# print(d[10])
-# d.update({50:500})
-# print(d)
-
-# for i in d:
-#     print(d[i])
-
-# for i in d.values( ):
-#     print(i)
-
-# a = [1,2,3,4,5]
-
-# b = a.copy
-
-# b[0] = 100
-
-# print(a)
-
-# d = {10:100, 20:200, 30:300, 40:400}
-
-# d2 = d.copy()
-
-# d2[20] = 2000
-
-# print(d)
-
-# a = int(input("tell your number: "))
-# try:
-#     print(10/a)
-
-# except Exception as err:
-#     print(f"Sorry there is an error af {err}")
-
-# print("END")
-
-# r = open("cyanide.txt",'w')
-
-# r.write(" Hello this is Cyanide and I am writing inside this file.")
+if check == 4:
+    deletefile()
