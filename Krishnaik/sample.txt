@@ -1,0 +1,5 @@
+Python is a powerful programming language.
+Python makes it easy to write code.
+Many developers love Python because Python is versatile and readable.
+Learning Python can open doors to data science, web development, and automation.
+Python, Python, Python!
